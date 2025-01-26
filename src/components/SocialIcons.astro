@@ -1,0 +1,86 @@
+---
+const {width, height} = Astro.props;
+const socialLinks = [
+	{
+		title: 'LinkedIn',
+		icon: 'simple-icons:linkedin',
+		href: 'https://www.linkedin.com/in/arjunkoirala/',
+
+	},
+	{
+		title: 'Instagram',
+		icon: 'mdi:instagram',
+		href: 'https://www.instagram.com/arzun.koirala',
+
+	},
+	// {
+	// 	title: 'Twitter',
+	// 	icon: 'ri:twitter-x-fill',
+	// 	href: 'https://twitter.com/home',
+
+	// },
+	{
+		title: 'CV',
+		icon: 'tabler:file-cv',
+		href: '../docs/ArzunKoiralaResume.pdf',
+
+	},
+];
+---
+
+<div class="icons__container">
+    {
+        socialLinks.map((data) => (
+            <a
+                href={data.href}
+                target="_blank"
+                rel="nofollow noreferrer noopener"
+            >
+                <iconify-icon
+					class=`skill__icon ${data.title}`
+                    icon={data.icon}
+                    width={width}
+                    height={height}
+                />
+            </a>
+        ))
+    }
+	<a class="footer__link" href="mailto:arzunkoirala@gmail.com"
+					><span
+						><iconify-icon
+							icon="fluent:mail-28-regular"
+							width="27"
+							height="27"
+							style="color: #dcd8fc"></iconify-icon></span
+					></a>
+</div>
+
+<style>
+	.icons__container {
+		display: flex;
+    width: 29.6rem;
+    /* padding: 1.3rem 4rem; */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.skill__icon{
+	color:#dcd8fc;
+}
+
+	.LinkedIn:hover{
+		color: #0e76a8;
+	}
+	.Instagram:hover{
+	color: #E1306C;
+	}
+	.Tiwtter:hover{
+	color: #0aa5f6;
+	}
+	.CV:hover{
+		color:#8e64ff;
+	}
+
+
+
+</style>
